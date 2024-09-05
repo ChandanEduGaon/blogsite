@@ -32,3 +32,5 @@ Route::post('/city/save', [UserController::class, 'city_save'])->name('city.save
 Route::get('/my_file', [UserController::class, 'my_file'])->name('my_file');
 Route::get('/my_file/list', [UserController::class, 'my_file_list'])->name('my_file.list');
 Route::post('/my_file/save', [UserController::class, 'my_file_save'])->name('my_file.save');
+Route::get('/string', [UserController::class, 'string'])->name('string');
+Route::post('/string/check', [UserController::class, 'check_string'])->name('check_string');

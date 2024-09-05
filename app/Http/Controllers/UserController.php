@@ -12,6 +12,10 @@ class UserController extends Controller
     {
         return view('user.index');
     }
+    public function string()
+    {
+        return view('user.string');
+    }
     public function city()
     {
         return view('user.city');
@@ -198,4 +202,28 @@ class UserController extends Controller
 
         return $bytes;
     }
+
+    function check_string(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'string' => [
+                'required',
+                'string',
+                'min:5',
+                'max:100',
+                'regex:/^(?!.*[ \-\'\x{00A0}]{2})(?!^[ \-\'\x{00A0}])(?!.*[ \-\'\x{00A0}]$)[A-Za-z \-\'\x{00A0}]+$/u'
+            ],
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', $validator->errors());
+        }
+
+        dd(["data" => $request->string, "msg" => "Success"]);
+    }
+
+    
 }
+

@@ -35,6 +35,10 @@
                             <a class="nav-link"  href="{{ route('getSection') }}">Get
                                 Sections</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="{{ route('string') }}">Get
+                                String Check</a>
+                        </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -65,3 +69,5 @@
 </body>
 
 </html>
+
+
